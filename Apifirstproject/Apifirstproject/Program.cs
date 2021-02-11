@@ -14,7 +14,7 @@ namespace Apifirstproject
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            Console.WriteLine("hellooooo000");
+            Console.WriteLine("hellooooo0oooo00");
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
