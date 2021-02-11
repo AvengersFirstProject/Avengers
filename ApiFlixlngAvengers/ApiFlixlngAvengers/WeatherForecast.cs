@@ -1,6 +1,6 @@
 using System;
 
-namespace ApiFlixLngAvengers
+namespace ApiFlixlngAvengers
 {
     public class WeatherForecast
     {
