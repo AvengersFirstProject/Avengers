@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiFlixLngAvengers.Controllers
+namespace ApiFlixlngAvengers.Controllers
 {
     [ApiController]
     [Route("[controller]")]

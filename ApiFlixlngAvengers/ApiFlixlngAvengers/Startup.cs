@@ -6,12 +6,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiFlixLngAvengers
+namespace ApiFlixlngAvengers
 {
     public class Startup
     {
@@ -25,8 +27,20 @@ namespace ApiFlixLngAvengers
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+    
             services.AddControllers();
+            services.AddSwaggerGen(swag =>
+            {
+                swag.SwaggerDoc("v0", new OpenApiInfo { Title = " ApiFlixlngAvengers", Version = "v0" });
+                var basePath = AppContext.BaseDirectory;
+                var xmlPath = Path.Combine(basePath, "ApiFlixlngAvengers.xml");
+                swag.IncludeXmlComments(xmlPath);
+                swag.DescribeAllEnumsAsStrings();
+                swag.DescribeAllParametersInCamelCase();
+                swag.CustomSchemaIds(i => i.FullName);
+            });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -38,6 +52,7 @@ namespace ApiFlixLngAvengers
 
             app.UseHttpsRedirection();
 
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -46,6 +61,8 @@ namespace ApiFlixLngAvengers
             {
                 endpoints.MapControllers();
             });
+            app.UseSwagger();
+            app.UseSwaggerUI(x => x.SwaggerEndpoint("v0/swagger.json", "ApiFlixlngAvengers"));
         }
     }
 }
