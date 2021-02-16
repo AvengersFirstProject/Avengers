@@ -19,7 +19,7 @@ namespace ApiFlixlngAvengers
                 scanner.TheCallingAssembly();
                 scanner.WithDefaultConventions();
                 scanner.AssembliesAndExecutablesFromApplicationBaseDirectory(assembly =>
-                assembly.GetName().Name.StartsWith("AvengersAPI."));
+                assembly.GetName().Name.StartsWith("ApiFlixLngAvengers."));
             });
             IConfigurationBuilder builder = new ConfigurationBuilder()
                           .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
