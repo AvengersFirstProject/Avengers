@@ -46,7 +46,7 @@ namespace ApiFlixlngAvengers.Controllers
 
             _avengersDbContext.SaveChanges();
 
-            return View();
+            return Ok();
         }
         [HttpPost]
         [Route("SaveSubscription")]
