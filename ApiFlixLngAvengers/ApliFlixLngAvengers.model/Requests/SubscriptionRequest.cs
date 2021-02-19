@@ -13,11 +13,10 @@ namespace ApliFlixLngAvengers.model.Requests
         Quaterly = 3
     }
 
-    public class SubscriptionRequest
-    {
+    public class SubscriptionRequest { 
         public subtype SubscriptionType { get; set; }
         public DateTime StartDate { get; set; }
-
+        public int CustomerId { get; set; }
         public DateTime EndDate { get; set; }
 
     }

@@ -21,7 +21,7 @@ namespace ApiFlixlngAvengers.Controllers
         private readonly ISubscriptionService _subscriptionservice;
         public SubscriptionController(IApiFlixLngAvengersDbContext avengersDbContext, ISubscriptionService subscriptionservice)
         {
-            _avengersDbContext = avengersDbContext;
+            
 
             _subscriptionservice = subscriptionservice;
 

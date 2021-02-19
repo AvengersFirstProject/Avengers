@@ -17,7 +17,7 @@ namespace ApiFlixlngAvengers.Requests
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Enter MobileNumber")]
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
 
         [Required(ErrorMessage = "Enter Email")]
         public string Email { get; set; }

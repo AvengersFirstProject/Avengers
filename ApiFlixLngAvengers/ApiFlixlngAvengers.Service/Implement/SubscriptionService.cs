@@ -25,19 +25,41 @@ namespace ApiFlixLngAvengers.Service.Implement
         public int SaveSubscription(SubscriptionRequest request)
          
         {
-            Subscription Subscriptionobj = new Subscription()
+            if (request.SubscriptionType == subtype.HalfYearly)
             {
-              SubscriptionType = request.SubscriptionType,
-              StartDate = request.StartDate,
-              EndDate = request.EndDate
+                currentdate = DateTime.Now;
+                expiryDate = DateTime.Now.AddMonths(6);
+            }
+            else if
+                (request.SubscriptionType == subtype.Quaterly)
+            {
+                currentdate = DateTime.Now;
+                expiryDate = DateTime.Now.AddMonths(3);
+            }
+            else if
+                (request.SubscriptionType == subtype.Yearly)
+            {
+                currentdate = DateTime.Now;
+                expiryDate = DateTime.Now.AddMonths(12);
+            }
 
-            };
+            Subscription Subscriptionobj = new Subscription();
+            Subscriptionobj.StartDate = DateTime.Now;
+            Subscriptionobj.EndDate = expiryDate;
+            Subscriptionobj.SubscriptionType = request.SubscriptionType;
+
+
             _avengersDbContext.Subscription.Add(Subscriptionobj);
 
 
             _avengersDbContext.SaveChanges();
 
             return Subscriptionobj.Id;
+
+
+
+
         }
+        
     }
 }
