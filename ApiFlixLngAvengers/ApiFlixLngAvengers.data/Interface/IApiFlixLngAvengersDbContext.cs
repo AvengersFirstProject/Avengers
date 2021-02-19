@@ -1,4 +1,5 @@
 ﻿using ApiFlixLngAvengers.model;
+using ApliFlixLngAvengers.model.Models;
 using Microsoft.EntityFrameworkCore;
 
 using System;
@@ -12,5 +13,6 @@ namespace ApiFlixLngAvengers.data.Interface
     public interface IApiFlixLngAvengersDbContext : IDisposable, IDbContext
     {
         DbSet<Customer> Customer { get; set; }
+        DbSet<Subscription> Subscription { get; set; }
     }
 }

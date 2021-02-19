@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiFlixlngAvengers.Requests;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,6 @@ namespace ApiFlixlngAvengers.Service.Interface
 {
     public interface ICustomerService
     {
-        IActionResult SaveUser(CustomerRequest request);
+      int SaveCustomer(CustomerRequest request);
     }
 }

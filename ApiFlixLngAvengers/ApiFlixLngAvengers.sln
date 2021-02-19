@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFlixLngAvengers.data", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFlixLngAvengers.model", "ApliFlixLngAvengers.model\ApiFlixLngAvengers.model.csproj", "{033113B0-4FC2-4D53-A676-AA30EEDF1DE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiFlixlngAvengers.Service", "ApiFlixlngAvengers.Service\ApiFlixlngAvengers.Service.csproj", "{CB999C6F-59C0-479F-89CA-AA4BAA15532E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiFlixLngAvengers.Service", "ApiFlixlngAvengers.Service\ApiFlixLngAvengers.Service.csproj", "{CB999C6F-59C0-479F-89CA-AA4BAA15532E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
