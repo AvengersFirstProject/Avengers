@@ -15,10 +15,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApiFlixLngAvengers.data\ApiFlixLngAvengers.data.csproj" />
+    <ProjectReference Include="..\ApiFlixlngAvengers.Service\ApiFlixLngAvengers.Service.csproj" />
     <ProjectReference Include="..\ApliFlixLngAvengers.model\ApiFlixLngAvengers.model.csproj" />
   </ItemGroup>
 

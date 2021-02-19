@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiFlixLngAvengersDbContext.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Interface\IApiFlixLngAvengersDbContext.cs" />
     <Compile Include="Interface\IDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

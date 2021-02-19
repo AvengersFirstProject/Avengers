@@ -8,6 +8,10 @@ using ApiFlixLngAvengers.data;
 using ApiFlixlngAvengers.Requests;
 using ApiFlixLngAvengers.model;
 using ApiFlixLngAvengers.data.Interface;
+using System.Net;
+using ApiFlixlngAvengers.Service.Interface;
+using ApliFlixLngAvengers.model.Requests;
+using ApiFlixLngAvengers.Service.Interface;
 
 namespace ApiFlixlngAvengers.Controllers
 {
@@ -16,53 +20,30 @@ namespace ApiFlixlngAvengers.Controllers
     public class CustomerController : Controller
     {
         private readonly IApiFlixLngAvengersDbContext _avengersDbContext;
-
-        public CustomerController(IApiFlixLngAvengersDbContext avengersDbContext)
+        private readonly ICustomerService _CustomerService;
+        
+        public CustomerController(IApiFlixLngAvengersDbContext avengersDbContext,ICustomerService CustomerService)
         {
             _avengersDbContext = avengersDbContext;
+            _CustomerService = CustomerService;
+            
 
         }
+
+        
+
         [HttpPost]
         [Route("SaveCustomer")]
-        public IActionResult SaveCustomer(CustomerRequest request)
+        public ActionResult<CustomerResponse> Save(CustomerRequest request)
         {
+            
+            int customerId = _CustomerService.SaveCustomer(request);
 
-            Customer obj = new Customer()
-            {
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-                MobNum = request.MobNum,
-                Email = request.Email,
-                UserName = request.UserName,
-                Password = request.Password
-
-            };
-            Subscription obj1 = new Subscription()
-            {
-                Name = request.UserName
-            };
-            _avengersDbContext.Customer.Add(obj);
-          //  _avengersDbContext.Subscription.Add(obj1);
-
-            _avengersDbContext.SaveChanges();
-
-            return Ok();
-        }
-        [HttpPost]
-        [Route("SaveSubscription")]
-        public IActionResult SaveSubscription(SubscriptionRequest request)
-        {
-
-            Subscription obj = new Subscription()
-            {
-                Name = request.Name
-            };
-          //  _avengersDbContext.Subscription.Add(obj);
-            _avengersDbContext.SaveChanges();
-
-            return View();
+            return StatusCode((int)HttpStatusCode.OK, 
+                new CustomerResponse { Id=customerId});
         }
 
        
+
     }
 }

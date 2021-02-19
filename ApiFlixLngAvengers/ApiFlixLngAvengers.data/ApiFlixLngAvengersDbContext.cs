@@ -1,5 +1,6 @@
 ﻿using ApiFlixLngAvengers.data.Interface;
 using ApiFlixLngAvengers.model;
+using ApliFlixLngAvengers.model.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

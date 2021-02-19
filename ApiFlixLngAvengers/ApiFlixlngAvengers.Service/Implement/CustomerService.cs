@@ -1,4 +1,7 @@
-﻿using ApiFlixlngAvengers.Service.Interface;
+﻿using ApiFlixlngAvengers.Requests;
+using ApiFlixlngAvengers.Service.Interface;
+using ApiFlixLngAvengers.data.Interface;
+using ApiFlixLngAvengers.model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,28 +18,31 @@ namespace ApiFlixlngAvengers.Service.Implement
 
         }
 
-        public IActionResult SaveCustomer(CustomerRequest request)
+        public int SaveCustomer(CustomerRequest request) 
         {
 
             Customer customerobj = new Customer()
             {
+                
                 FirstName = request.FirstName,
                 LastName = request.LastName,
-                MobNum = request.MobNum,
+                MobileNumber = request.MobileNumber,
                 Email = request.Email,
                 UserName = request.UserName,
-                Password = request.Password
-
+                Password = request.Password,
+                ConfirmPassword = request.ConfirmPassword,
             };
             _avengersDbContext.Customer.Add(customerobj);
             
-
+            
             _avengersDbContext.SaveChanges();
 
+            return customerobj.Id;
+
         }
-        IActionResult ICustomerService.SaveUser(UsersRequest request)
-        {
-            throw new NotImplementedException();
-        }
+
+        
+
+        
     }
 }
